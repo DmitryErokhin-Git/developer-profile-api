@@ -1,0 +1,80 @@
+generator client {
+  provider     = "prisma-client"
+  output       = "../src/generated/prisma"
+  moduleFormat = "esm"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Profile {
+  id          String             @id @default(uuid()) @db.Uuid
+  key         String             @unique @db.VarChar(64)
+  name        String             @db.VarChar(120)
+  description String
+  links       ProfessionalLink[]
+  skills      Skill[]
+  experience  Experience[]
+  projects    Project[]
+}
+
+model ProfessionalLink {
+  id        String  @id @default(uuid()) @db.Uuid
+  profileId String  @db.Uuid
+  profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  key       String  @db.VarChar(64)
+  label     String  @db.VarChar(120)
+  url       String  @db.VarChar(2048)
+  sortOrder Int
+
+  @@unique([profileId, key])
+  @@index([profileId, sortOrder, id])
+}
+
+model Skill {
+  id        String  @id @default(uuid()) @db.Uuid
+  profileId String  @db.Uuid
+  profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  key       String  @db.VarChar(64)
+  name      String  @db.VarChar(120)
+  sortOrder Int
+
+  @@unique([profileId, key])
+  @@index([profileId, sortOrder, id])
+}
+
+model Experience {
+  id           String    @id @default(uuid()) @db.Uuid
+  profileId    String    @db.Uuid
+  profile      Profile   @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  key          String    @db.VarChar(64)
+  company      String    @db.VarChar(200)
+  position     String    @db.VarChar(200)
+  startDate    DateTime  @db.Date
+  endDate      DateTime? @db.Date
+  achievements String[]  @default([])
+  sortOrder    Int
+
+  @@unique([profileId, key])
+  @@index([profileId, sortOrder, id])
+}
+
+model Project {
+  id        String  @id @default(uuid()) @db.Uuid
+  profileId String  @db.Uuid
+  profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  key       String  @db.VarChar(64)
+  name      String  @db.VarChar(120)
+  url       String  @db.VarChar(2048)
+  sortOrder Int
+
+  @@unique([profileId, key])
+  @@index([profileId, sortOrder, id])
+}
+
+// Independent of Profile so deletion never triggers automatic recreation.
+model BootstrapState {
+  key         String   @id @db.VarChar(64)
+  completedAt DateTime @default(now()) @db.Timestamptz(3)
+}

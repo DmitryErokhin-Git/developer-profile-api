@@ -1,0 +1,112 @@
+{
+  "name": "Дмитрий Ерохин",
+  "description": "Разработчик на TypeScript и JavaScript с коммерческим опытом с 2022 года. Работаю с серверной логикой на Node.js и Deno, API, базами данных и внешними интеграциями. Есть опыт работы с NestJS, Express, Fastify и Firebase Cloud Functions, подписками на изменения данных и обменом событиями в реальном времени. Также разрабатываю веб- и мобильные интерфейсы на Angular и Ionic.",
+  "links": [
+    {
+      "key": "github",
+      "label": "GitHub",
+      "url": "https://github.com/DmitryErokhin-Git"
+    },
+    {
+      "key": "linkedin",
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/dmitrii-erohin-58864a256/"
+    }
+  ],
+  "skills": [
+    { "key": "typescript", "name": "TypeScript" },
+    { "key": "nodejs", "name": "Node.js" },
+    { "key": "deno", "name": "Deno" },
+    { "key": "nestjs", "name": "NestJS" },
+    { "key": "express", "name": "Express" },
+    { "key": "fastify", "name": "Fastify" },
+    { "key": "javascript", "name": "JavaScript" },
+    { "key": "rest-api", "name": "REST API" },
+    { "key": "openapi", "name": "Swagger / OpenAPI" },
+    { "key": "jwt", "name": "JWT" },
+    { "key": "postgresql", "name": "PostgreSQL" },
+    { "key": "mongodb", "name": "MongoDB" },
+    { "key": "sqlite", "name": "SQLite" },
+    { "key": "firebase-functions", "name": "Firebase Cloud Functions" },
+    { "key": "firebase", "name": "Firebase" },
+    { "key": "supabase", "name": "Supabase" },
+    { "key": "realtime-data", "name": "Realtime-подписки на изменения данных" },
+    { "key": "socket-io", "name": "Socket.IO" },
+    { "key": "webrtc", "name": "WebRTC" },
+    { "key": "stripe", "name": "Stripe" },
+    { "key": "solana", "name": "Solana" },
+    { "key": "telegram-bots", "name": "Telegram-боты" },
+    { "key": "angular", "name": "Angular" },
+    { "key": "rxjs", "name": "RxJS" },
+    { "key": "ngrx", "name": "NgRx" },
+    { "key": "ionic", "name": "Ionic" },
+    { "key": "capacitor", "name": "Capacitor" },
+    { "key": "html", "name": "HTML" },
+    { "key": "css", "name": "CSS" },
+    { "key": "scss", "name": "SCSS" },
+    { "key": "git", "name": "Git" },
+    { "key": "postman", "name": "Postman" },
+    { "key": "jira", "name": "Jira" }
+  ],
+  "experience": [
+    {
+      "key": "freelance",
+      "company": "Фриланс / проектная работа",
+      "position": "Web-разработчик",
+      "startDate": "2022-09",
+      "endDate": null,
+      "achievements": [
+        "Разработка и поддержка серверной функциональности на NestJS и Firebase Cloud Functions; работа с Express и Fastify напрямую и через NestJS.",
+        "Работа с REST API, документацией Swagger/OpenAPI и авторизацией с использованием JWT.",
+        "Работа с базами данных, подписками на изменения и синхронизацией данных в реальном времени.",
+        "Интеграция внешних сервисов, включая оплату и подписки через Stripe.",
+        "Разработка клиентской и серверной частей криптоплатежей в сети Solana.",
+        "Разработка Telegram-ботов.",
+        "Разработка чатов на основе realtime-подписок базы данных и Socket.IO.",
+        "Рефакторинг существующего кода, обновление Node.js и зависимостей с проверкой совместимости.",
+        "Диагностика и исправление ошибок, участие в код-ревью и совместной разработке.",
+        "Разработка клиентской части веб- и мобильных приложений на Angular и Ionic, работа с состоянием и асинхронными данными через NgRx и RxJS.",
+        "Создание переиспользуемых компонентов, форм и адаптивных интерфейсов по макетам."
+      ]
+    },
+    {
+      "key": "system-administrator",
+      "company": "НИЦ супер-ЭВМ и нейрокомпьютеров",
+      "position": "Системный администратор",
+      "startDate": "2018-07",
+      "endDate": "2022-12",
+      "achievements": [
+        "Поддержка более 70 компьютеров, обслуживание и расширение сетевой инфраструктуры предприятия.",
+        "Обслуживание мини-АТС, систем контроля доступа, охранной сигнализации и видеонаблюдения."
+      ]
+    },
+    {
+      "key": "engineer",
+      "company": "НИЦ супер-ЭВМ и нейрокомпьютеров",
+      "position": "Инженер",
+      "startDate": "2014-01",
+      "endDate": "2018-07",
+      "achievements": [
+        "Ремонт и обслуживание специализированного вычислительного оборудования.",
+        "Разработка и монтаж систем бесперебойного питания и охлаждения."
+      ]
+    },
+    {
+      "key": "design-engineer",
+      "company": "НИЦ супер-ЭВМ и нейрокомпьютеров",
+      "position": "Конструктор",
+      "startDate": "2013-10",
+      "endDate": "2014-01",
+      "achievements": [
+        "Разработка деталей и конструктивных компонентов корпусов ЭВМ."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "key": "developer-profile-api",
+      "name": "Developer Profile API",
+      "url": "https://github.com/DmitryErokhin-Git/developer-profile-api"
+    }
+  ]
+}
