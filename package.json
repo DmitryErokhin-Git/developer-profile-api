@@ -1,0 +1,104 @@
+{
+  "name": "developer-profile-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal developer profile powered by NestJS, GraphQL and Prisma",
+  "type": "module",
+  "engines": {
+    "node": ">=24.15.0 <25"
+  },
+  "scripts": {
+    "build": "nest build",
+    "start": "node dist/main.js",
+    "start:dev": "nest start --watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:integration": "vitest run --config vitest.integration.config.ts",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev",
+    "db:deploy": "prisma migrate deploy",
+    "db:seed": "prisma db seed",
+    "data:bootstrap": "tsx scripts/bootstrap-data.ts",
+    "data:import": "tsx scripts/import-data.ts",
+    "test:smoke": "node scripts/smoke.mjs",
+    "test:browser": "playwright test",
+    "test:smoke:browser": "node scripts/smoke.mjs --browser"
+  },
+  "dependencies": {
+    "@apollo/server": "5.5.2",
+    "@as-integrations/express5": "1.1.2",
+    "@nestjs/apollo": "14.2.0",
+    "@nestjs/common": "12.4.2",
+    "@nestjs/config": "12.1.1",
+    "@nestjs/core": "12.4.2",
+    "@nestjs/graphql": "14.2.0",
+    "@nestjs/platform-express": "12.4.2",
+    "@prisma/adapter-pg": "7.10.1",
+    "@prisma/client": "7.10.1",
+    "dotenv": "18.0.10",
+    "graphql": "16.15.0",
+    "helmet": "8.3.0",
+    "pg": "8.23.1",
+    "reflect-metadata": "0.2.2",
+    "rxjs": "7.8.2",
+    "zod": "4.6.7",
+    "express-rate-limit": "8.7.4"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@nestjs/cli": "12.0.12",
+    "@nestjs/testing": "12.4.2",
+    "@swc/core": "1.16.22",
+    "@testcontainers/postgresql": "12.2.1",
+    "@types/express": "5.0.6",
+    "@types/node": "24.19.2",
+    "@types/pg": "8.23.1",
+    "@types/supertest": "7.2.1",
+    "eslint": "10.14.0",
+    "eslint-config-prettier": "10.1.8",
+    "globals": "17.14.0",
+    "prettier": "3.10.1",
+    "prisma": "7.10.1",
+    "supertest": "7.3.2",
+    "tsx": "4.23.15",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.72.2",
+    "unplugin-swc": "2.0.0",
+    "vitest": "5.1.0",
+    "@playwright/test": "1.65.0"
+  },
+  "overrides": {
+    "@apollo/server": {
+      "@graphql-tools/schema": "10.1.5",
+      "@graphql-tools/merge": "9.2.8",
+      "@graphql-tools/utils": "12.1.0"
+    },
+    "archiver-utils": {
+      "glob": "14.0.6"
+    },
+    "@eslint/config-array": {
+      "minimatch": "11.0.8"
+    },
+    "eslint": {
+      "minimatch": "11.0.8"
+    },
+    "@typescript-eslint/typescript-estree": {
+      "minimatch": "11.0.8"
+    }
+  },
+  "allowScripts": {
+    "@swc/core@1.16.22": true,
+    "prisma@7.10.1": true,
+    "@prisma/engines@7.10.1": true,
+    "esbuild@0.28.2": true,
+    "@apollo/protobufjs@1.2.8": true,
+    "protobufjs@7.6.6": true,
+    "ssh2": false,
+    "cpu-features": false,
+    "fsevents": false
+  }
+}
