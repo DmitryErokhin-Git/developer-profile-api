@@ -1,0 +1,13 @@
+node_modules
+dist
+coverage
+.git
+.env
+.env.*
+!.env.example
+artifacts
+output
+.playwright-cli
+src/generated
+*.log
+.DS_Store

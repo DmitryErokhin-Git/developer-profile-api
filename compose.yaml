@@ -1,0 +1,60 @@
+name: developer-profile-api
+
+services:
+  db:
+    image: postgres:18.6-bookworm
+    environment:
+      POSTGRES_USER: profile
+      POSTGRES_PASSWORD: profile_local
+      POSTGRES_DB: profile
+    volumes:
+      - postgres-data:/var/lib/postgresql
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U profile -d profile']
+      interval: 2s
+      timeout: 5s
+      retries: 30
+
+  init:
+    build:
+      context: .
+      target: init
+    environment:
+      DATABASE_URL: ${COMPOSE_DATABASE_URL:-postgresql://profile:profile_local@db:5432/profile}
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: 'no'
+
+  api:
+    build:
+      context: .
+      target: api
+    environment:
+      DATABASE_URL: ${COMPOSE_DATABASE_URL:-postgresql://profile:profile_local@db:5432/profile}
+      NODE_ENV: production
+      PORT: 3000
+      SANDBOX_ENABLED: ${SANDBOX_ENABLED:-true}
+      GRAPHQL_RATE_LIMIT: ${GRAPHQL_RATE_LIMIT:-120}
+    ports:
+      - '127.0.0.1:${PORT:-3000}:3000'
+    depends_on:
+      init:
+        condition: service_completed_successfully
+    init: true
+    healthcheck:
+      test:
+        [
+          'CMD',
+          'node',
+          '-e',
+          "fetch('http://127.0.0.1:3000/health').then(r => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))",
+        ]
+      interval: 5s
+      timeout: 7s
+      retries: 12
+      start_period: 10s
+    stop_grace_period: 15s
+
+volumes:
+  postgres-data:
